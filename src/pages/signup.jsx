@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Store from "../server/api";
+import inputHandle from "../utils/input";
 
 class Signup extends Component {
   state = {
@@ -33,8 +34,9 @@ class Signup extends Component {
               type="text"
               className="form-control"
               placeholder="输入用户名"
+              name="user"
               value={this.state.user}
-              onChange={e => this.setState({ user: e.target.value })}
+              onChange={inputHandle.bind(this)}
             />
             <small className="form-text text-muted">用于账户登录。</small>
           </div>
@@ -44,8 +46,9 @@ class Signup extends Component {
               type="text"
               className="form-control"
               placeholder="请输入手机号"
+              name="tel"
               value={this.state.tel}
-              onChange={e => this.setState({ tel: e.target.value })}
+              onChange={inputHandle.bind(this)}
             />
           </div>
           <div className="form-group">
@@ -54,8 +57,9 @@ class Signup extends Component {
               type="password"
               className="form-control"
               placeholder="输入密码"
+              name="password"
               value={this.state.password}
-              onChange={e => this.setState({ password: e.target.value })}
+              onChange={inputHandle.bind(this)}
             />
           </div>
           <div className="form-group">
@@ -64,7 +68,7 @@ class Signup extends Component {
               type="password"
               className="form-control"
               placeholder="请再次输入密码"
-              onChange={e => this.reToken(e)}
+              onChange={this.reToken}
             />
           </div>
           <button

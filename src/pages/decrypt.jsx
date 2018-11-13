@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Store from "../server/api";
+import inputHandle from "../utils/input";
 
 class Decrypt extends Component {
   state = {
@@ -22,7 +23,8 @@ class Decrypt extends Component {
               className="form-control"
               id="exampleInputEmail1"
               placeholder="输入用户名"
-              onChange={e => this.setState({ tel: e.target.value })}
+              name="tel"
+              onChange={inputHandle.bind(this)}
               value={this.state.tel}
             />
           </div>

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Store from "../server/api";
+import inputHandle from "../utils/input";
 
 class Wanted extends Component {
   state = {
-    subject: "",
+    subject: "语文",
     salary: "",
     tel: "",
     introduce: ""
@@ -24,11 +25,12 @@ class Wanted extends Component {
             <label>科目</label>
             <select
               className="form-control"
+              name="subject"
               value={this.state.subject}
-              onChange={e => this.setState({ subject: e.target.value })}
+              onChange={inputHandle.bind(this)}
             >
-              <option>语文</option>
-              <option>数学</option>
+              <option value="语文">语文</option>
+              <option value="数学">数学</option>
             </select>
           </div>
           <div className="form-group col-5">
@@ -37,12 +39,11 @@ class Wanted extends Component {
               type="number"
               className="form-control"
               placeholder="300"
+              name="salary"
               value={this.state.salary}
-              onChange={e => this.setState({ salary: e.target.value })}
+              onChange={inputHandle.bind(this)}
             />
-            <small id="emailHelp" className="form-text text-muted">
-              市场均价300/天。
-            </small>
+            <small className="form-text text-muted">市场均价300/天。</small>
           </div>
         </div>
         <div className="form-group">
@@ -51,8 +52,9 @@ class Wanted extends Component {
             type="text"
             className="form-control"
             placeholder="手机号"
+            name="tel"
             value={this.state.tel}
-            onChange={e => this.setState({ tel: e.target.value })}
+            onChange={inputHandle.bind(this)}
           />
         </div>
         <div className="form-group">
@@ -60,11 +62,12 @@ class Wanted extends Component {
           <textarea
             className="form-control"
             rows="3"
+            name="introduce"
             value={this.state.introduce}
-            onChange={e => this.setState({ introduce: e.target.value })}
+            onChange={inputHandle.bind(this)}
           />
         </div>
-        <button onClick={this.addWanted} className="btn btn-primary">
+        <button className="btn btn-primary" onClick={this.addWanted}>
           提交
         </button>
       </div>

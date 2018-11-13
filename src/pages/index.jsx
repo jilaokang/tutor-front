@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Store from "../server/api";
+import inputHandle from "../utils/input";
 
 class App extends Component {
   state = {
@@ -30,7 +31,8 @@ class App extends Component {
               className="form-control"
               id="exampleInputEmail1"
               placeholder="输入用户名"
-              onChange={e => this.setState({ user: e.target.value })}
+              name="user"
+              onChange={inputHandle.bind(this)}
               value={this.state.user}
             />
           </div>
@@ -41,7 +43,8 @@ class App extends Component {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="输入密码"
-              onChange={e => this.setState({ password: e.target.value })}
+              name="password"
+              onChange={inputHandle.bind(this)}
               value={this.state.password}
             />
           </div>

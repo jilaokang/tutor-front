@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Store from "../server/api";
+import inputHandle from "../utils/input";
 
 class Recruit extends Component {
   state = {
-    subject: "",
+    subject: "数学",
     salary: "",
     tel: "",
     introduce: "",
@@ -25,26 +26,20 @@ class Recruit extends Component {
             <label>科目</label>
             <select
               className="form-control"
-              onChange={e =>
-                this.setState({
-                  subject: e.target.value
-                })
-              }
+              name="subject"
+              onChange={inputHandle.bind(this)}
               value={this.state.subject}
             >
-              <option>语文</option>
-              <option>数学</option>
+              <option value="语文">语文</option>
+              <option value="数学">数学</option>
             </select>
           </div>
           <div className="form-group col-5">
             <label>年级</label>
             <select
               className="form-control"
-              onChange={e =>
-                this.setState({
-                  grade: e.target.value
-                })
-              }
+              name="grade"
+              onChange={inputHandle.bind(this)}
               value={this.state.grade}
             >
               <option>一年级</option>
@@ -58,11 +53,8 @@ class Recruit extends Component {
             type="number"
             className="form-control"
             placeholder="手机号"
-            onChange={e =>
-              this.setState({
-                tel: e.target.value
-              })
-            }
+            name="tel"
+            onChange={inputHandle.bind(this)}
             value={this.state.tel}
           />
         </div>
@@ -71,11 +63,8 @@ class Recruit extends Component {
           <textarea
             className="form-control"
             rows="3"
-            onChange={e =>
-              this.setState({
-                introduce: e.target.value
-              })
-            }
+            name="introduce"
+            onChange={inputHandle.bind(this)}
             value={this.state.introduce}
           />
         </div>
@@ -86,11 +75,8 @@ class Recruit extends Component {
             type="number"
             className="form-control"
             placeholder="300"
-            onChange={e =>
-              this.setState({
-                salary: e.target.value
-              })
-            }
+            name="salary"
+            onChange={inputHandle.bind(this)}
             value={this.state.salary}
           />
           <small id="emailHelp" className="form-text text-muted">
