@@ -3,6 +3,10 @@ import Store from "../server/api";
 import inputHandle from "../utils/input";
 
 class Decrypt extends Component {
+  constructor(props) {
+    super(props);
+    this.inputHandle = inputHandle.bind(this);
+  }
   state = {
     tel: ""
   };
@@ -24,7 +28,7 @@ class Decrypt extends Component {
               id="exampleInputEmail1"
               placeholder="输入用户名"
               name="tel"
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
               value={this.state.tel}
             />
           </div>

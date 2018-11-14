@@ -3,6 +3,11 @@ import Store from "../server/api";
 import inputHandle from "../utils/input";
 
 class Recruit extends Component {
+  constructor(props) {
+    super(props);
+    this.inputHandle = inputHandle.bind(this);
+  }
+
   state = {
     subject: "数学",
     salary: "",
@@ -27,7 +32,7 @@ class Recruit extends Component {
             <select
               className="form-control"
               name="subject"
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
               value={this.state.subject}
             >
               <option value="语文">语文</option>
@@ -39,7 +44,7 @@ class Recruit extends Component {
             <select
               className="form-control"
               name="grade"
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
               value={this.state.grade}
             >
               <option>一年级</option>
@@ -54,7 +59,7 @@ class Recruit extends Component {
             className="form-control"
             placeholder="手机号"
             name="tel"
-            onChange={inputHandle.bind(this)}
+            onChange={this.inputHandle}
             value={this.state.tel}
           />
         </div>
@@ -64,7 +69,7 @@ class Recruit extends Component {
             className="form-control"
             rows="3"
             name="introduce"
-            onChange={inputHandle.bind(this)}
+            onChange={this.inputHandle}
             value={this.state.introduce}
           />
         </div>
@@ -76,7 +81,7 @@ class Recruit extends Component {
             className="form-control"
             placeholder="300"
             name="salary"
-            onChange={inputHandle.bind(this)}
+            onChange={this.inputHandle}
             value={this.state.salary}
           />
           <small id="emailHelp" className="form-text text-muted">

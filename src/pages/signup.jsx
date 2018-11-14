@@ -3,6 +3,11 @@ import Store from "../server/api";
 import inputHandle from "../utils/input";
 
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.inputHandle = inputHandle.bind(this);
+  }
+
   state = {
     user: "",
     password: "",
@@ -27,7 +32,6 @@ class Signup extends Component {
       <div className="container" style={{ textAlign: "center", width: "100%" }}>
         <div style={{ textAlign: "left" }}>
           <h3>注册</h3>
-
           <div className="form-group">
             <label>用户名</label>
             <input
@@ -36,7 +40,7 @@ class Signup extends Component {
               placeholder="输入用户名"
               name="user"
               value={this.state.user}
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
             />
             <small className="form-text text-muted">用于账户登录。</small>
           </div>
@@ -48,7 +52,7 @@ class Signup extends Component {
               placeholder="请输入手机号"
               name="tel"
               value={this.state.tel}
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
             />
           </div>
           <div className="form-group">
@@ -59,7 +63,7 @@ class Signup extends Component {
               placeholder="输入密码"
               name="password"
               value={this.state.password}
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
             />
           </div>
           <div className="form-group">

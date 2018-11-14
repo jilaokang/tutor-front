@@ -1,6 +1,7 @@
 export default function (event) {
-    const value = event.target.value;
-    const name = event.target.name;
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
     this.setState({
         [name]: value

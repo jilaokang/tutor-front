@@ -3,6 +3,10 @@ import Store from "../server/api";
 import inputHandle from "../utils/input";
 
 class Wanted extends Component {
+  constructor(props) {
+    super(props);
+    this.inputHandle = inputHandle.bind(this);
+  }
   state = {
     subject: "语文",
     salary: "",
@@ -27,7 +31,7 @@ class Wanted extends Component {
               className="form-control"
               name="subject"
               value={this.state.subject}
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
             >
               <option value="语文">语文</option>
               <option value="数学">数学</option>
@@ -41,7 +45,7 @@ class Wanted extends Component {
               placeholder="300"
               name="salary"
               value={this.state.salary}
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
             />
             <small className="form-text text-muted">市场均价300/天。</small>
           </div>
@@ -54,7 +58,7 @@ class Wanted extends Component {
             placeholder="手机号"
             name="tel"
             value={this.state.tel}
-            onChange={inputHandle.bind(this)}
+            onChange={this.inputHandle}
           />
         </div>
         <div className="form-group">
@@ -64,7 +68,7 @@ class Wanted extends Component {
             rows="3"
             name="introduce"
             value={this.state.introduce}
-            onChange={inputHandle.bind(this)}
+            onChange={this.inputHandle}
           />
         </div>
         <button className="btn btn-primary" onClick={this.addWanted}>

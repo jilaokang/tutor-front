@@ -15,7 +15,7 @@ import HomeWanted from "../pages/home/wanted";
 
 const Routes = () => (
   <BrowserRouter>
-    <div>
+    <>
       <Route exact path="/" component={App} />
       <Route path="/signup" component={Signup} />
       <Route path="/recruit" component={Recurit} />
@@ -26,7 +26,7 @@ const Routes = () => (
       <Route path="/home/me" component={HomeMe} />
       <Route path="/home/recruit" component={HomeRecruit} />
       <Route path="/home/wanted" component={HomeWanted} />
-    </div>
+    </>
   </BrowserRouter>
 );
 

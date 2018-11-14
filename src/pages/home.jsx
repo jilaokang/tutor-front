@@ -10,11 +10,11 @@ class Home extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <>
         <div className="container" />
         <router-view />
         <FooterNav />
-      </div>
+      </>
     );
   }
 }

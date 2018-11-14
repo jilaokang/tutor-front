@@ -4,6 +4,11 @@ import Store from "../server/api";
 import inputHandle from "../utils/input";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.inputHandle = inputHandle.bind(this);
+  }
+
   state = {
     user: "",
     password: ""
@@ -32,7 +37,7 @@ class App extends Component {
               id="exampleInputEmail1"
               placeholder="输入用户名"
               name="user"
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
               value={this.state.user}
             />
           </div>
@@ -44,7 +49,7 @@ class App extends Component {
               id="exampleInputPassword1"
               placeholder="输入密码"
               name="password"
-              onChange={inputHandle.bind(this)}
+              onChange={this.inputHandle}
               value={this.state.password}
             />
           </div>
