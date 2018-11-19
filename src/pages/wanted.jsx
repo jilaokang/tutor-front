@@ -7,6 +7,7 @@ class Wanted extends Component {
     super(props);
     this.inputHandle = inputHandle.bind(this);
   }
+
   state = {
     subject: "语文",
     salary: "",
